@@ -11,4 +11,4 @@ jobs:
       - name: Automatic Tagging of Releases
         id: increment-git-tag
         run: |
-          bash ./build/git_update_tag.sh -m $(git log -1 --pretty=%B)
+          bash ./scripts/git_update_tag.sh -m $(git log -1 --pretty=%B)
