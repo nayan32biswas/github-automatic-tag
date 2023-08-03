@@ -8,6 +8,9 @@ jobs:
     name: Create tag
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Automatic Tagging of Releases
         id: increment-git-tag
         run: |
