@@ -12,5 +12,4 @@ def read_root():
 
 @app.get("/items")
 def read_item(q: Optional[str] = None):
-    print(q)
     return {"count": 0, "results": []}
