@@ -10,10 +10,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        env:
-          commit_message: ${{ github.event.head_commit.message }}
 
       - name: Automatic Tagging of Releases
         id: increment-git-tag
         run: |
-          bash ./scripts/git_update_tag.sh -m $commit_message
+          bash ./scripts/git_update_tag.sh -m $(git show -s --format=%s)
