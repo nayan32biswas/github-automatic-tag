@@ -1,0 +1,28 @@
+version: "3.7"
+
+# environment
+x-volumes: &env-volume
+  ALLOWED_HOSTS: "*"
+  SECRET_KEY: "uwqr82asfg298ruwh1234uchrbgyu2oriqwnetge5rteriyu2354f3erfewc"
+
+services:
+  api:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    image: nayan32biswas/fastapi_blog:latest
+    container_name: fastapi_blog_server
+    command: "uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
+    ports:
+      - 8000:8000
+    environment:
+      <<: *env-volume
+    volumes:
+      - ./:/code
+
+    networks:
+      - blog-backend-tier
+
+networks:
+  blog-backend-tier:
+    driver: bridge

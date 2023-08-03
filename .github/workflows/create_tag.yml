@@ -1,0 +1,14 @@
+---
+name: Create Github Tag
+on:
+  push:
+    branches: [main]
+jobs:
+  build-and-push:
+    name: Create tag
+    runs-on: ubuntu-latest
+    steps:
+      - name: Automatic Tagging of Releases
+        id: increment-git-tag
+        run: |
+          bash ./build/git_update_tag.sh -m $(git log -1 --pretty=%B)
