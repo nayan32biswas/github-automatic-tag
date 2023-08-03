@@ -4,7 +4,6 @@ VERSION=""
 MESSAGE=""
 
 MESSAGE=$(git show -s --format=%s)
-echo "commit-message: ${MESSAGE}"
 
 # get parameters
 while getopts ":v:m:" flag; do
@@ -42,8 +41,6 @@ VNUM1=${CURRENT_VERSION_PARTS[0]}
 VNUM2=${CURRENT_VERSION_PARTS[1]}
 VNUM3=${CURRENT_VERSION_PARTS[2]}
 
-echo "before: ${VNUM1}--${VNUM2}--${VNUM3}"
-
 if [[ $VERSION == 'major' ]]; then
     VNUM1=$((VNUM1 + 1))
     VNUM2=0
@@ -57,8 +54,6 @@ else
     echo "No version type (https://semver.org/) or incorrect type specified, try: -v [major, minor, patch]"
     exit 1
 fi
-
-echo "after: ${VNUM1}--${VNUM2}--${VNUM3}"
 
 # create new tag
 NEW_TAG="$VNUM1.$VNUM2.$VNUM3"
