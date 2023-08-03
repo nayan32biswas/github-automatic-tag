@@ -3,6 +3,7 @@
 VERSION=""
 MESSAGE=""
 
+echo "message:$(git show -s --format=%s)"
 echo "commit-message: ${MESSAGE}"
 
 # get parameters
