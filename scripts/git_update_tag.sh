@@ -3,6 +3,8 @@
 VERSION=""
 MESSAGE=""
 
+echo "commit-message: ${MESSAGE}"
+
 # get parameters
 while getopts ":v:m:" flag; do
     case "${flag}" in
