@@ -45,7 +45,7 @@ VNUM3=${CURRENT_VERSION_PARTS[2]}
 echo "before: ${VNUM1}--${VNUM2}--${VNUM3}"
 
 if [[ $VERSION == 'major' ]]; then
-    VNUM1=v$((VNUM1 + 1))
+    VNUM1=$((VNUM1 + 1))
     VNUM2=0
     VNUM3=0
 elif [[ $VERSION == 'minor' ]]; then
