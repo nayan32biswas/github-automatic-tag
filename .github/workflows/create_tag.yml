@@ -14,4 +14,4 @@ jobs:
       - name: Automatic Tagging of Releases
         id: increment-git-tag
         run: |
-          bash ./scripts/git_update_tag.sh -m $(git show -s --format=%s)
+          bash ./scripts/git_update_tag.sh

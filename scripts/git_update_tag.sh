@@ -3,14 +3,14 @@
 VERSION=""
 MESSAGE=""
 
-echo "message:$(git show -s --format=%s)"
+MESSAGE=$(git show -s --format=%s)
 echo "commit-message: ${MESSAGE}"
 
 # get parameters
 while getopts ":v:m:" flag; do
     case "${flag}" in
     v) VERSION=${OPTARG} ;;
-    m) MESSAGE=${OPTARG} ;;
+    # m) MESSAGE=${OPTARG} ;;
     \?) echo "Invalid option ${flag}" ;;
     esac
 done
@@ -71,6 +71,6 @@ else
     echo "Already a tag on this commit"
 fi
 
-echo "git-tag=$NEW_TAG" >> "$GITHUB_OUTPUT"
+echo "git-tag=$NEW_TAG" >>"$GITHUB_OUTPUT"
 
 exit 0
